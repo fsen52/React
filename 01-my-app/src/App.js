@@ -1,3 +1,4 @@
+import Clock1 from "./components/clock1/Clock1";
 import Hello from "./components/hello/Hello";
 import Jsx from "./components/jsx/Jsx";
 import ExternalStyle from "./components/style/ExternalStyle";
@@ -11,16 +12,20 @@ function App() {
    <div> 
 
         <div className="App">
-        Merhaba Dünya
+      
         </div>
-
+      {/*
         <Hello/>
         <Test/>
         <Jsx/>
         <Style/>
         <InternalStyle/>
-        <ExternalStyle/>
-   </div>
+      <ExternalStyle/> 
+      */}
+
+      <Clock1/>
+
+      </div>
   );
 }
 
