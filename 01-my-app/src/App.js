@@ -13,6 +13,7 @@ import { Component } from "react";
 import BSReact from "./components/bootstrap-react/BSReact";
 import Shop from "./components/shop/Shop";
 import State from "./components/state/State";
+import Counter from "./components/counter/Counter";
 function App() {
   const avatarUrl =
     "https://images.unsplash.com/photo-1638323307587-4f4eda877bc1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80";
@@ -54,9 +55,11 @@ function App() {
       <BSReact/>
       <Shop />
 
-      */}
-
+      
       <State />
+        */}
+
+      <Counter />
     </div>
   );
 }
