@@ -1,0 +1,38 @@
+[
+  {
+    "image": "Product1.jpg",
+    "title": "Anker Soundcore",
+    "desc": "Hybrid Active Noise Canceling",
+    "price": "59"
+  },
+  {
+    "image": "Product2.jpg",
+    "title": "Sony MDRZX110NC",
+    "desc": "Noise Canceling, Cable, Black",
+    "price": "79"
+  },
+  {
+    "image": "Product3.jpg",
+    "title": "BOSE BOSE",
+    "desc": "",
+    "price": "55"
+  },
+  {
+    "image": "Product4.jpg",
+    "title": "Elektro Dose",
+    "desc": "",
+    "price": "65"
+  },
+  {
+    "image": "Product5.jpg",
+    "title": "Panasonic",
+    "desc": "",
+    "price": "84"
+  },
+  {
+    "image": "Product6.jpg",
+    "title": "Apple",
+    "desc": "",
+    "price": "93"
+  }
+]
