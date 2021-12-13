@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const BSClassic = () => {
-    return (
-        <div>
-               
-        </div>
-    )
-}
+  return <div>Bu sayfa boş :S</div>;
+};
 
-export default BSClassic
+export default BSClassic;
