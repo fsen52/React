@@ -18,7 +18,7 @@ import InternalStyle from "./components/style/InternalStyle";
 import Test from "./components/test/Test";
 import Profile from "./components/profile/Profile";
 import Image from "./components/image/Image.js";
-import { Component } from "react";
+import React, { Component, useEffect, useState } from "react";
 import BSReact from "./components/bootstrap-react/BSReact";
 import Shop from "./components/shop/Shop";
 import State from "./components/state/State";
@@ -35,7 +35,19 @@ import Form3 from "./components/forms/Form3";
 import Form4 from "./components/forms/Form4";
 import { Col, Container, Row } from "react-bootstrap";
 import ImagePage from "./pages/ImagePage";
+import ToDoAppPages from "./pages/ToDoAppPages";
+import { StoreContext } from "./store";
+import axios from "axios";
+import ExchangePages from "./pages/ExchangePages";
 function App() {
+  const [kurlar, setKurlar] = useState({});
+
+  useEffect(() => {
+    axios("https://api.frankfurter.app/latest?from=try").then((resp) => {
+      setKurlar(resp.data.rates);
+    });
+  }, []);
+
   const avatarUrl =
     "https://images.unsplash.com/photo-1638323307587-4f4eda877bc1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80";
 
@@ -54,7 +66,7 @@ function App() {
        <Clock2 yaziRengi="yellow" zeminRengi="navy"/>
        <Clock2 yaziRengi="yellow" zeminRengi="red"/>
        <Clock2 yaziRengi="white" zeminRengi="black"/>
-<Profile
+        <Profile
         avatar={avatarUrl}
         name="Ali Gel"
         location="Turkiye, Ankara"
@@ -88,26 +100,28 @@ function App() {
       <Form3 />
       <Form4 />
 */}
-
-      <Router>
-        <Header />
-        <Container>
-          <Row>
-            <Col md={4}>
-              {" "}
-              <Menu />
-            </Col>
-            <Col md={8}>
-              <Routes>
-                <Route path="/image" element={<ImagePage />} />
-                <Route path="/bsclassic" element={<BootstrapClassicPage />} />
-                <Route path="/bsreact" element={<BootstrapReactPage />} />
-                <Route path="/" element={<HomePage />} />
-              </Routes>
-            </Col>
-          </Row>
-        </Container>
-      </Router>
+      <StoreContext.Provider value={{ kurlar }}>
+        <Router>
+          <Header />
+          <Container style={{ margin: "0px" }}>
+            <Row>
+              <Col md={3}>
+                <Menu />
+              </Col>
+              <Col>
+                <Routes>
+                  <Route path="/image" element={<ImagePage />} />
+                  <Route path="/bsclassic" element={<BootstrapClassicPage />} />
+                  <Route path="/bsreact" element={<BootstrapReactPage />} />
+                  <Route path="/" element={<HomePage />} />
+                  <Route path="/todoapp" element={<ToDoAppPages />} />
+                  <Route path="/exchange" element={<ExchangePages />} />
+                </Routes>
+              </Col>
+            </Row>
+          </Container>
+        </Router>
+      </StoreContext.Provider>
     </div>
   );
 }
